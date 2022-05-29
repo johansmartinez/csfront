@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fe6601 #ffffff;
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 14px;
+}
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #fe6601;
+  border-radius: 82px;
+  border: 3px outset #000000;
+}
+.nav-principal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.4rem;
+  height: 9vh;
+  min-height: fit-content;
+  background-color: #f4f4f4;
+  padding: 10px;
+}
+
+.link-nav-principal {
+  font-family: 'Cabin';
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.nav-principal span {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: bold;
+  font-family: 'Be Vietnam Pro';
+}
+.tintatron-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../img/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 420px;
+}
+
+/*-------------------------------------BOTONES----------------------------------*/
+
+button{
+  font-family: 'Cabin';
+}
+.dark-button {
+  cursor: pointer;
+  color: white;
+  background-color: #212121;
+  font-size: 1rem;
+  padding: 10px;
+  border: transparent 1px solid;
+  transition: border-radius 300ms;
+}
+
+.dark-button:hover {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.big-orange-button {
+  cursor: pointer;
+  color: white;
+  background-color: #ff5f00;
+  font-size: 3.6rem;
+  padding: 30px;
+  padding: 10px;
+  border: transparent 1px solid;
+  transition: border-radius 300ms;
+}
+
+.big-orange-button:hover {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.orange-button {
+  cursor: pointer;
+  color: white;
+  background-color: #ff5f00;
+  font-size: 1.6rem;
+  padding: 10px;
+  border: transparent 1px solid;
+  transition: border-radius 300ms;
+}
+
+.orange-button:hover {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
