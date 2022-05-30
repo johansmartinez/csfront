@@ -1,11 +1,14 @@
+import { useContext } from "react";
+import { ViewContext } from "../context/ViewProvider";
 import { Nav } from "./nav/Nav";
 
 function Homepage() {
+    const {setView} =useContext(ViewContext);
     return ( 
         <>
             <Nav/>
             <div className="tintatron-div">
-                <button className="big-orange-button" type="button">EMPIEZA AHORA</button>
+                <button className="big-orange-button" type="button" onClick={()=>{setView('SINGUP')}}>EMPIEZA AHORA</button>
             </div>
             <div id="about">
                 <h2 className="title">ACERCA DE:</h2>

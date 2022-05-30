@@ -2,6 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto';
+  font-size: 1.6rem;
 }
 
 html {
@@ -184,6 +186,97 @@ html {
   font-size: 1.9rem;
   margin: 0 auto;
 }
+
+.portal{
+  margin: 20px auto;
+  width: 90vw;
+  min-height: 70vh;
+  max-width: max-content;
+}
+
+/*-------------------------------------FORM----------------------------------*/
+form{
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: fit-content;
+  border: 0.5px solid #555353;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+  margin: auto auto;
+}
+
+form h2{
+  margin-bottom: 10px;
+}
+
+form p{
+  margin-bottom: 10px;
+}
+
+form button{
+  margin-bottom: 10px;
+}
+
+.field-form{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.field-form p{
+  margin-left: 10px;
+  font-family: 'Be Vietnam Pro';
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.field-form input{
+  width: 100%;
+  font-family: 'Roboto';
+  font-size: 1.6rem;
+  padding: 5px;
+  border: 0.5px solid #555353;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.form-dark-button{
+  width: 100%;
+  cursor: pointer;
+  color: white;
+  background-color: #212121;
+  font-size: 1.6rem;
+  padding: 10px;
+  border: transparent 1px solid;
+  border-radius: 10px;
+}
+
+.form-dark-button:hover {
+  background-color: transparent;
+  color: #212121;
+  border: #212121 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form-orange-button{
+  width: 100%;
+  cursor: pointer;
+  color: white;
+  background-color: #fe6601;
+  font-size: 1.6rem;
+  padding: 10px;
+  border: transparent 1px solid;
+  border-radius: 10px;
+}
+
+.form-orange-button:hover {
+  background-color: transparent;
+  color: #fe6601;
+  border: #fe6601 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
 /*------------------------------------FOOTER---------------------------------*/
 
 footer{
@@ -211,10 +304,21 @@ footer p{
   display: block;
   width: 100%;
 }
-
+.form-title{
+  font-family: 'Be Vietnam Pro';
+  font-size: 2.4rem;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+}
 .text-normal{
   font-family: 'Roboto';
   font-size: 1.8rem;
+}
+
+.red{
+  font-family: inherit;
+  color: red;
 }
 
 .rigth-align{
@@ -239,6 +343,7 @@ button{
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 
 .big-orange-button {
   cursor: pointer;

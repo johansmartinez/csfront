@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useResolution } from "../../resolution/useResolution";
+import {ViewContext} from "../../context/ViewProvider";
+
 
 function Nav() {
     
     const [menu, setMenu] = useState(false);
+    const {view,setView}= useContext(ViewContext);
 
     return ( 
         <nav className="nav-principal">
@@ -26,7 +29,7 @@ function Nav() {
                 </div>
             }
             <span>CLUB SUE</span>
-            <button className="dark-button" type="button">INICIAR SESIÓN</button>
+            <button className="dark-button" type="button" onClick={()=>setView('LOGIN')}>INICIAR SESIÓN</button>
         </nav>
     );
 }
