@@ -1,3 +1,11 @@
+.link-nav-principal {
+    text-decoration: none;
+    font-family: 'Cabin';
+    margin-right: 10px;
+    cursor: pointer;
+    color: black;
+}
+
 .nav-principal span {
     font-size: 4.2rem;
 }
@@ -13,4 +21,41 @@
 
 .dark-button {
     font-size: 1.6rem;
+}
+
+#about{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-container{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    width: 100%;
+    height: fit-content;
+    align-content: space-around;
+    border-bottom: #C4C4C4 solid 3px;
+}
+.about-container p{
+    order: 1;
+    width: 65%;
+}
+.about-container img{
+    width: 30%;
+    order: 2;
+    margin: 0 auto;
+}
+
+.contact-container{
+    flex-direction: row;
+}
+
+.contact-item{
+    width: 30vw;
+}
+
+footer p{
+    font-size: 6.5rem;
 }
