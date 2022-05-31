@@ -15,12 +15,10 @@ function NavPortal({item, setItem}) {
 
     return ( 
         <nav className="nav-principal">
-            <img className="mini-logo" src="https://i.ibb.co/s3pJPqG/clubsuelogo-removebg-preview.png"/>
-            <span>CLUB SUE</span>
             {(view==='LOGIN'||view==='SINGUP')&&<button className="dark-button" type="button" onClick={()=>setView('HOMEPAGE')}>VOLVER</button>}
             {((validateUser)&&(resolution==='MOBILE'))&&
                 <button type="button" className="img-icon"
-                    onClick={()=>setMenu(true)}
+                onClick={()=>setMenu(true)}
                 > <img src="https://i.ibb.co/0M110GD/menu-1.png"/></button>
             }
             {menu&&
@@ -29,10 +27,12 @@ function NavPortal({item, setItem}) {
                     <p></p>
                     {items.map((e)=>(
                         <div className={(e===item)?"link-menu-orange":"link-menu"} onClick={()=>setItem(e)}>{e}</div>
-                    ))}
+                        ))}
                 </div>
             }
-            {resolution!=='MOBILE'&&<span></span>}
+            <span>CLUB SUE</span>
+            <img className="mini-logo" src="https://i.ibb.co/s3pJPqG/clubsuelogo-removebg-preview.png"/>
+            {(validateUser&&resolution!=='MOBILE')&&<span></span>}
         </nav>
     );
 }
