@@ -100,11 +100,28 @@ html {
   cursor: pointer;
 }
 
+.link-menu-orange{
+  text-decoration: none;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-family: 'Cabin';
+  color: white;
+  font-size: 1.9rem;
+  cursor: pointer;
+  background-color: #fe6601;
+}
+
 .nav-principal span {
   text-align: center;
   font-size: 2.4rem;
   font-weight: bold;
   font-family: 'Be Vietnam Pro';
+}
+
+.mini-logo{
+  width: 6vh;
+  height: auto;
 }
 /*----------------------------------DIVS-----------------------------*/
 .tintatron-div {
@@ -188,10 +205,18 @@ html {
 }
 
 .portal{
+  
   margin: 20px auto;
-  width: 90vw;
+  min-width: 90vw;
   min-height: 70vh;
   max-width: max-content;
+}
+
+.portal-container{
+  width: 90vh;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
 }
 
 /*-------------------------------------FORM----------------------------------*/
@@ -239,6 +264,31 @@ form button{
   border: 0.5px solid #555353;
   border-radius: 5px;
   box-shadow: none;
+}
+
+.field-form select{
+  width: 100%;
+  background-color: white;
+  font-family: 'Roboto';
+  font-size: 1.6rem;
+  padding: 5px;
+  border: 0.5px solid #555353;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.option{
+  width: 100%;
+  background-color: white;
+  font-family: 'Roboto';
+  font-size: 1.6rem;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.option:hover{
+  background-color: #212121;
 }
 
 .form-dark-button{
