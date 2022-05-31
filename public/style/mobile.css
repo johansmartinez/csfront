@@ -218,7 +218,15 @@ html {
   display: flex;
   flex-direction: column;
 }
-
+.portal-select{
+  padding: 20px;
+  margin: auto;
+  min-width: 90vh;
+  min-height: 80vh;
+  max-height: max-content;
+  border: 1px solid #C4C4C4;
+  border-radius: 5px;
+}
 /*-------------------------------------FORM----------------------------------*/
 form{
   padding: 40px;

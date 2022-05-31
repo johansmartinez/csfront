@@ -15,6 +15,7 @@ function NavPortal({item, setItem}) {
 
     return ( 
         <nav className="nav-principal">
+            {(validateUser&&resolution!=='MOBILE')&&<span></span>}
             {(view==='LOGIN'||view==='SINGUP')&&<button className="dark-button" type="button" onClick={()=>setView('HOMEPAGE')}>VOLVER</button>}
             {((validateUser)&&(resolution==='MOBILE'))&&
                 <button type="button" className="img-icon"
@@ -32,7 +33,6 @@ function NavPortal({item, setItem}) {
             }
             <span>CLUB SUE</span>
             <img className="mini-logo" src="https://i.ibb.co/s3pJPqG/clubsuelogo-removebg-preview.png"/>
-            {(validateUser&&resolution!=='MOBILE')&&<span></span>}
         </nav>
     );
 }
