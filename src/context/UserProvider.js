@@ -26,7 +26,11 @@ function UserProvider({children}) {
     const getMenu=()=>{
         return routes[user.rol||'estudiante'];
     };
+    
 
+    const reloadData=()=>{
+        
+    }
     const validateUser=user.documento!==''&&user.documento;
 
     return(
@@ -35,6 +39,7 @@ function UserProvider({children}) {
                 user,
                 setUser,
                 getMenu,
+                reloadData,
                 validateUser
             }}
         >

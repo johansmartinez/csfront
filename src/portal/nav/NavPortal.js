@@ -22,7 +22,7 @@ function NavPortal({item, setItem}) {
                 onClick={()=>setMenu(true)}
                 > <img src="https://i.ibb.co/0M110GD/menu-1.png"/></button>
             }
-            {menu&&
+            {(resolution==='MOBILE'&&menu)&&
                 <div className="menu">
                     <button className="menu-button" onClick={()=>setMenu(false)}>x</button>
                     <p></p>
