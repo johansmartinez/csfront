@@ -108,7 +108,17 @@ form{
     background-color: #fe6601;
 }
 .portal-select{
-    width: 70%;
+    width: 70vw;
+    min-width: 70%;
     height: fit-content;
-    
+}
+
+.progress-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.progress-card{
+    width: 27%;
 }

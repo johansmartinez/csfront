@@ -9,6 +9,7 @@ import {Singup} from './signup/Singup';
 import {NavPortal} from './nav/NavPortal';
 import {Menu} from './nav/Menu';
 import { Profile } from './profile/Profile';
+import { Tracking } from './tracking/Tracking';
 
 function Portal() {
     const {view} = useContext(ViewContext);
@@ -29,6 +30,7 @@ function Portal() {
                     {resolution!=='MOBILE'&&<Menu item={menuItem} setItem={m=>setMenuItem(m)} />}
                     <div className='portal-select'>
                         {menuItem==='PERFIL'&&<Profile/>}
+                        {menuItem==='MI DESARROLLO'&&<Tracking/>}
                     </div>
                 </div>
                 }
