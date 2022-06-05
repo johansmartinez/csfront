@@ -10,6 +10,7 @@ import {NavPortal} from './nav/NavPortal';
 import {Menu} from './nav/Menu';
 import { Profile } from './profile/Profile';
 import { Tracking } from './tracking/Tracking';
+import { Attendance } from './attendance/Attendance';
 
 function Portal() {
     const {view} = useContext(ViewContext);
@@ -31,6 +32,7 @@ function Portal() {
                     <div className='portal-select'>
                         {menuItem==='PERFIL'&&<Profile/>}
                         {menuItem==='MI DESARROLLO'&&<Tracking/>}
+                        {menuItem==='ASISTENCIA'&&<Attendance/>}
                     </div>
                 </div>
                 }
