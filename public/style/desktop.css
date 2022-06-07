@@ -122,3 +122,11 @@ form{
 .progress-card{
     width: 27%;
 }
+
+.reports-container{
+    max-width: 100%;
+}
+
+.div-borde{
+    max-width: 90%;
+}

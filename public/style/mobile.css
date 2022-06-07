@@ -264,6 +264,30 @@ html {
   display: flex;
   flex-direction: column;
 }
+
+.reports-container{
+  width: 85vw;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.div-borde{
+  max-width: 80vh;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  border: 0.5px solid #555353;
+  border-radius: 10px;
+  margin: auto auto;
+  margin-bottom: 20px;
+}
+
+.div-borde .desc{
+  margin-top: 10px;
+  max-width: 70vw;
+}
 /*-------------------------------------FORM----------------------------------*/
 form{
   padding: 40px;
@@ -491,14 +515,5 @@ button{
   }
   100% {
     transform: translateX(0);
-  }
-}
-
-@keyframes close {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
   }
 }

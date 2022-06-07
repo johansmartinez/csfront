@@ -12,6 +12,7 @@ import { Profile } from './profile/Profile';
 import { Tracking } from './tracking/Tracking';
 import { Attendance } from './attendance/Attendance';
 import { Logout } from './Logout/Logout';
+import { Report } from './report/Reports';
 
 function Portal() {
     const {view} = useContext(ViewContext);
@@ -35,6 +36,7 @@ function Portal() {
                         {menuItem==='MI DESARROLLO'&&<Tracking/>}
                         {menuItem==='ASISTENCIA'&&<Attendance/>}
                         {menuItem==='CERRAR SESIÓN'&&<Logout/>}
+                        {menuItem==='MIS REPORTES'&&<Report/>}
                     </div>
                 </div>
                 }

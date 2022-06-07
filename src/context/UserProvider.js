@@ -17,9 +17,8 @@ function UserProvider({children}) {
         ],
         instructor:[
             'PERFIL',
-            'LISTA DE ALUMNOS',
+            'EVALUAR ALUMNOS',
             'CONTROL DE ASISTENCIA',
-            'REGISTRAR INSTRUCTOR',
             'CERRAR SESIÓN'
         ],
     };
