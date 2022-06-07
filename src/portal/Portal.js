@@ -15,6 +15,7 @@ import { Logout } from './Logout/Logout';
 import { Report } from './report/Reports';
 import { RegisterAttendance } from './attendance/RegisterAttendance';
 import { AddReport } from './report/AddReport';
+import { Evaluation } from './evaluation/Evaluation';
 
 function Portal() {
     const {view} = useContext(ViewContext);
@@ -41,6 +42,7 @@ function Portal() {
                         {menuItem==='MIS REPORTES'&&<Report/>}
                         {menuItem==='REGISTRAR ASISTENCIA'&&<RegisterAttendance/>}
                         {menuItem==='AGREGAR INFORME'&&<AddReport/>}
+                        {menuItem==='EVALUAR ALUMNOS'&&<Evaluation/>}
                     </div>
                 </div>
                 }

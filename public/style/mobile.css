@@ -288,6 +288,26 @@ html {
   margin-top: 10px;
   max-width: 70vw;
 }
+
+.eval-req{
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.eval-req p{
+  min-width: 70%;
+  max-width: 70%;
+}
+
+.eval-req input{
+  accent-color: green;
+  color: #ffffff;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
 /*-------------------------------------FORM----------------------------------*/
 form{
   padding: 40px;
@@ -342,7 +362,7 @@ form button{
 }
 
 .field-form textarea{
-  width: 100%;
+  max-width: 100%;
   font-family: 'Roboto';
   font-size: 1.6rem;
   padding: 5px;
@@ -466,6 +486,10 @@ footer p{
 
 .rigth-align{
   text-align: right;
+}
+
+.line{
+  text-decoration: line-through;
 }
 /*-------------------------------------BOTONES----------------------------------*/
 
