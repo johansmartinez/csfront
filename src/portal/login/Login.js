@@ -19,7 +19,7 @@ function Login(props) {
                 token:'sadasasdadsas',
                 nombre:'SUJETO',
                 apellido:'PRUEBA',
-                rol:'estudiante'
+                rol:'instructor'
             });
             /*
             axios.post('', {documento,constrasena})
