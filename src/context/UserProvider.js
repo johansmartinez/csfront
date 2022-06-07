@@ -1,9 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { ViewContext } from "./ViewProvider";
 
 const UserContext=createContext();
 
 function UserProvider({children}) {
-    
+    const {setView} = useContext(ViewContext)
     const [user, setUser] = useState({});
 
     const routes={
@@ -27,6 +28,10 @@ function UserProvider({children}) {
         return routes[user.rol||'estudiante'];
     };
     
+    const logout=()=>{
+        setView('LOGIN');
+        setUser({});
+    }
 
     const reloadData=()=>{
         
@@ -40,7 +45,8 @@ function UserProvider({children}) {
                 setUser,
                 getMenu,
                 reloadData,
-                validateUser
+                validateUser,
+                logout
             }}
         >
             {children}

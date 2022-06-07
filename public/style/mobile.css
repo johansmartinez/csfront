@@ -259,6 +259,11 @@ html {
   width: 50%;
   height: auto;
 }
+
+.logout{
+  display: flex;
+  flex-direction: column;
+}
 /*-------------------------------------FORM----------------------------------*/
 form{
   padding: 40px;
