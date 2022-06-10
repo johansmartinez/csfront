@@ -21,7 +21,7 @@ function Profile() {
         axios.get(`${SERVER}/eps/`)
         .then(({data})=>{
             setList(data)
-        }).catch(()=>{alert('error')})
+        }).catch(()=>{})
     }, [])
 
     const reloadForm=()=>{
