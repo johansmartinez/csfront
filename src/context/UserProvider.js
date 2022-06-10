@@ -1,12 +1,22 @@
+import axios from "axios";
 import { createContext, useContext, useState } from "react";
 import { ViewContext } from "./ViewProvider";
+import { SERVER } from "./Backend";
 
 const UserContext=createContext();
 
 function UserProvider({children}) {
-    const {setView} = useContext(ViewContext)
+    const {setView} = useContext(ViewContext);
     const [user, setUser] = useState({});
 
+    const setToken=(token)=>{
+        localStorage.setItem('token-clubsue',JSON.stringify({token}))
+    }
+
+    const getToken=()=>{
+        return JSON.parse(localStorage.getItem('token-clubsue')).token;
+    }
+    
     const routes={
         estudiante:[
             'PERFIL',
@@ -28,14 +38,25 @@ function UserProvider({children}) {
         return routes[user.rol||'estudiante'];
     };
     
-    const logout=()=>{
+    const logout=()=>{      
         setView('LOGIN');
         setUser({});
+        setToken('');
     }
 
     const reloadData=()=>{
-        
+        const config={
+            headers:{
+                'Access-Control-Allow-Origin': '*',
+                'token-clubsue':getToken()
+            }
+        }
+        return axios.get(`${SERVER}/person/${user.documento}`, config)
+        .then(({data})=>{
+            setUser(data)
+        }).catch(()=>{})
     }
+
     const validateUser=user.documento!==''&&user.documento;
 
     return(
@@ -46,7 +67,9 @@ function UserProvider({children}) {
                 getMenu,
                 reloadData,
                 validateUser,
-                logout
+                logout,
+                setToken,
+                getToken
             }}
         >
             {children}

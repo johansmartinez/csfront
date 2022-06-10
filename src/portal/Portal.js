@@ -3,7 +3,6 @@ import { ViewContext } from '../context/ViewProvider';
 import { UserContext } from '../context/UserProvider';
 import { useResolution } from '../resolution/useResolution';
 
-
 import {Login} from './login/Login';
 import {Singup} from './signup/Singup';
 import {NavPortal} from './nav/NavPortal';
@@ -27,6 +26,7 @@ function Portal() {
     return ( 
         <>
             <NavPortal item={menuItem} setItem={m=>setMenuItem(m)}/>
+            
             <div className='portal'>
                 {view==='LOGIN'&&<Login/>}
                 {view==='SINGUP'&&<Singup/>}
@@ -47,6 +47,7 @@ function Portal() {
                 </div>
                 }
             </div>
+            
         </>
     );
 }

@@ -3,12 +3,13 @@ import { useState, useContext, useEffect } from "react";
 import Swal from "sweetalert2";
 import { UserContext } from "../../context/UserProvider";
 import { ViewContext } from "../../context/ViewProvider";
+import { SERVER } from "../../context/Backend";
 
 function Singup(props) {
     const [documento, setDocumento] = useState('');
-    const [constrasena, setContrasena] = useState('');
-    const [nombre, setNombre] = useState('');
-    const [apellido, setApellido] = useState('');
+    const [contrasena, setContrasena] = useState('');
+    const [nombres, setNombre] = useState('');
+    const [apellidos, setApellido] = useState('');
     const [correo, setCorreo] = useState('');
     const [telefono, setTelefono] = useState('');
     const [fecha_nacimiento, setFecha_nacimiento] = useState('');
@@ -20,41 +21,28 @@ function Singup(props) {
     const {setUser}= useContext(UserContext);
 
     useEffect(() => {
-        /*
-        axios.get('')
-        .then(()=>{})
+        
+        axios.get(`${SERVER}/eps/`)
+        .then(({data})=>{
+            setList(data)
+        })
         .catch(()=>{});
-        */
-        setList([
-            {id:1, nombre:'SANITAS'},
-            {id:2, nombre:'MEDISALUD'},
-        ]);
     }, [])
     
 
     const handleSingup=()=>{
-        if (documento&&constrasena&&nombre&&apellido&&correo&&telefono&&fecha_nacimiento&&eps!=='-1') {
-            setView('');
-            setUser({
-                documento:'12321',
-                token:'sadasasdadsas',
-                nombre:'SUJETO',
-                apellido:'PRUEBA',
-                rol:'estudiante'
-            });
-            /*
-            axios.post('', {documento,constrasena})
-            .then(()=>{
-                //registar usuario y token
-            })
-            .catch((e)=>{
+        if (documento&&contrasena&&nombres&&apellidos&&correo&&telefono&&fecha_nacimiento&&eps!=='-1') {
+            axios.post(`${SERVER}/person/student`,{documento,eps,nombres,apellidos,telefono,fecha_nacimiento,correo,contrasena})
+            .then(({data})=>{
+                setView('');
+                setUser(data);
+            }).catch((e)=>{
                 Swal.fire({
                     icon: 'error',
-                    text: `${e}`,
+                    text: `${e.response.data}`,
                     confirmButtonColor:'#fe6601'
                 })
             })
-            */
         }else{
             Swal.fire({
                 icon: 'error',
@@ -74,11 +62,11 @@ function Singup(props) {
             </label>
             <label className="field-form">
                 <p>Nombre:<span className="red">*</span>:</p>
-                <input type='text' placeholder="Ingrese su nombre" value={nombre} onChange={e=>{setNombre(e.target.value)}}/>
+                <input type='text' placeholder="Ingrese su nombre" value={nombres} onChange={e=>{setNombre(e.target.value)}}/>
             </label>
             <label className="field-form">
                 <p>Apellido:<span className="red">*</span>:</p>
-                <input type='text' placeholder="Ingrese su apellido" value={apellido} onChange={e=>{setApellido(e.target.value)}}/>
+                <input type='text' placeholder="Ingrese su apellido" value={apellidos} onChange={e=>{setApellido(e.target.value)}}/>
             </label>
             <label className="field-form">
                 <p>Correo:<span className="red">*</span>:</p>
@@ -103,7 +91,7 @@ function Singup(props) {
             </label>
             <label className="field-form">
                 <p>Contraseña<span className="red">*</span>:</p>
-                <input type='password' placeholder="Ingrese un número de documento" value={constrasena} onChange={e=>{setContrasena(e.target.value)}}/>
+                <input type='password' placeholder="Ingrese un número de documento" value={contrasena} onChange={e=>{setContrasena(e.target.value)}}/>
             </label>
             <button type="button" className="form-dark-button" onClick={()=>{setView('LOGIN')}}>
                 INICIAR SESIÓN

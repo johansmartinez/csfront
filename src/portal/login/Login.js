@@ -3,37 +3,35 @@ import { useState, useContext } from "react";
 import Swal from "sweetalert2";
 import { UserContext } from "../../context/UserProvider";
 import { ViewContext } from "../../context/ViewProvider";
+import { SERVER } from '../../context/Backend';
 
 function Login(props) {
     const [documento, setDocumento] = useState('');
-    const [constrasena, setContrasena] = useState('');
+    const [contrasena, setContrasena] = useState('');
 
     const {setView} = useContext(ViewContext);
-    const {setUser}= useContext(UserContext);
+    const {setUser, setToken}= useContext(UserContext);
 
     const handleLogin=()=>{
-        if (documento&&constrasena) {
-            setView('');
-            setUser({
-                documento:'12321',
-                token:'sadasasdadsas',
-                nombre:'SUJETO',
-                apellido:'PRUEBA',
-                rol:'instructor'
-            });
-            /*
-            axios.post('', {documento,constrasena})
-            .then(()=>{
-                //registar usuario y token
+        if (documento&&contrasena) {
+            const config={
+                headers:{
+                    'Access-Control-Allow-Origin': '*',
+                }
+            }
+            axios.post(`${SERVER}/person/login`, {documento,contrasena},config)
+            .then(({data})=>{
+                setView('');
+                setUser(data);
+                setToken(data.token)
             })
             .catch((e)=>{
                 Swal.fire({
                     icon: 'error',
-                    text: `${e}`,
+                    text: `${e.response.data}`,
                     confirmButtonColor:'#fe6601'
                 })
             })
-            */
         }else{
             Swal.fire({
                 icon: 'error',
@@ -53,7 +51,7 @@ function Login(props) {
             </label>
             <label className="field-form">
                 <p>Contraseña<span className="red">*</span>:</p>
-                <input type='password' placeholder="Ingrese un número de documento" value={constrasena} onChange={e=>{setContrasena(e.target.value)}}/>
+                <input type='password' placeholder="Ingrese un número de documento" value={contrasena} onChange={e=>{setContrasena(e.target.value)}}/>
             </label>
             <button type="button" className="form-dark-button" onClick={()=>{setView('SINGUP')}}>
                 CREAR CUENTA
