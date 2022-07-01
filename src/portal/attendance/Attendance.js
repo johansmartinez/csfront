@@ -19,7 +19,6 @@ function Attendance() {
         }
         axios.get(`${SERVER}/attendance/${user.documento}`, config)
         .then(({data})=>{
-            alert(JSON.stringify(data))
             let a=data.map(e=> e.fecha_asistencia)
             setDays(a)
         }).catch(()=>{})
