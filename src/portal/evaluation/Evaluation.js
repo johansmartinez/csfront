@@ -74,8 +74,33 @@ function Evaluation() {
     }
 
     const handleAdd=()=>{
-        setSearch(false)
-        setStudent('');
+        const config={
+            headers:{
+                'Access-Control-Allow-Origin': '*',
+                'token-clubsue':getToken()
+            }
+        }
+        let data={instructor:user.documento,requisitos:requirements.filter(e=>e.state==true)}
+        if (data.requisitos.length>0) {
+            axios.post(`${SERVER}/report/evaluate`, data ,config)
+            .then(({data})=>{
+                let temp=data.map(e=>{return {...e, state:false}})
+                setRank(temp[0]?.rango_id)
+                setRequirements(temp)
+            }).catch(e=>{
+                Swal.fire({
+                    icon: 'error',
+                    text: `${e.response.data}`,
+                    confirmButtonColor:'#fe6601'
+                })
+            })
+        } else {
+            Swal.fire({
+                icon: 'error',
+                text: `Para enviar una evaluación se necesita marcar por lo menos 1 requisito`,
+                confirmButtonColor:'#fe6601'
+            })
+        }
     }
 
     return (
@@ -92,7 +117,7 @@ function Evaluation() {
                 </button>}
                 {((!!search)&&(!rank))&&
                     <div>
-                        <p className="text-normal">El estudiante no posee randgo, desea comenzar a evaluar?</p>
+                        <p className="text-normal">El estudiante no posee rango, ¿Desea crearle uno?</p>
                         <button type="button" className="form-orange-button" onClick={()=>{initializate()}}>EVALUAR</button>
                     </div>
                 }
