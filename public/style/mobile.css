@@ -370,7 +370,9 @@ form button{
   box-shadow: none;
 }
 
+
 .field-form textarea{
+  min-width: 100%;
   max-width: 100%;
   font-family: 'Roboto';
   font-size: 1.6rem;

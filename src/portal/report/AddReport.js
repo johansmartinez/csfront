@@ -1,20 +1,38 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState,useContext } from "react";
+import { UserContext } from "../../context/UserProvider";
+import { SERVER } from '../../context/Backend';
+import Swal from "sweetalert2";
 
 function AddReport() {
-
+    const { user,getToken }= useContext(UserContext);
     const [search, setSearch] = useState(false);
-    const [requirements, setRequirements] = useState([
-        {id:1, nombre:'aaaa', componente:'Flexibilidad'},
-        {id:2, nombre:'bbbb', componente:'Flexibilidad'},
-        {id:3, nombre:'cccc', componente:'Flexibilidad'},
-    ])
+    const [requirements, setRequirements] = useState([])
 
     const [student, setStudent] = useState('');
-    const [requirement, setRequirement] = useState('')
+    const [requirement, setRequirement] = useState('-1')
     const [description, setDescription] = useState('');
 
     const handleSearch=()=>{
-        setSearch(true)
+        const config={
+            headers:{
+                'Access-Control-Allow-Origin': '*',
+                'token-clubsue':getToken()
+            }
+        }
+        axios.get(`${SERVER}/rank/${student}`,config)
+        .then(({data})=>{
+            if (data.length>0) {
+                setRequirements(data)
+                setSearch(true)
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    text: `El usuario no posee un rango`,
+                    confirmButtonColor:'#fe6601'
+                });
+            }
+        })
     }
 
     const handleCancel=()=>{
@@ -22,10 +40,37 @@ function AddReport() {
     }
 
     const handleAdd=()=>{
-        setSearch(false)
-        setStudent('');
-        setRequirement('');
-        setDescription('');
+        if (requirement==='-1') {
+            Swal.fire({
+                icon: 'error',
+                text: `Por favor seleccione un requisito`,
+                confirmButtonColor:'#fe6601'
+            })
+        } else {
+            const config={
+                headers:{
+                    'Access-Control-Allow-Origin': '*',
+                    'token-clubsue':getToken()
+                }
+            }
+            axios.post(`${SERVER}/report/add`,{documento:student,descripcion:description,instructor:user.documento,requisito:requirement},config)
+            .then(({data})=>{
+                setRequirements(data)
+                setRequirement('-1');
+                setDescription('');
+                Swal.fire({
+                    icon: 'success',
+                    text: `El informe se ha añadido correctamente`,
+                    confirmButtonColor:'#fe6601'
+                })
+            }).catch(e=>{
+                Swal.fire({
+                    icon: 'error',
+                    text: `${e.response.data}`,
+                    confirmButtonColor:'#fe6601'
+                })
+            })
+        }
     }
     return (
         <>
@@ -41,21 +86,22 @@ function AddReport() {
                 </button>}
                 {!!search&&
                     <>
+                        <button type="button" className="form-dark-button" onClick={handleCancel}>
+                            CANCELAR
+                        </button>
                         <label className="field-form">
                             <p>Requisito:<span className="red">*</span>:</p>
                             <select value={requirement} onChange={e=>setRequirement(e.target.value)}>
+                                <option className="option" value='-1'>SELECCIONE UN REQUISITO</option>
                                 {requirements.map(e=>(
-                                    <option className="option" value={`${e.id}`}>({e.componente}) {e.nombre}</option>
+                                    <option className="option" value={`${e.requisito_id}`}>({e.componente}) {e.requisito}</option>
                                 ))}
                             </select>
                         </label>
                         <label className="field-form">
-                            <p>Descripción:<span className="red">*</span></p>
-                            <textarea placeholder="Ingrese el número de documento del estudiante" value={description} onChange={e=>{setDescription(e.target.value)}}/>
+                            <p>Descripción:</p>
+                            <textarea placeholder="Ingrese una descripción" value={description} onChange={e=>{setDescription(e.target.value)}}/>
                         </label>
-                        <button type="button" className="form-dark-button" onClick={handleCancel}>
-                            CANCELAR
-                        </button>
                         <button type="button" className="form-orange-button" onClick={handleAdd}>
                             AGREGAR INFORME
                         </button>

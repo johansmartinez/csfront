@@ -11,7 +11,6 @@ function Evaluation() {
     const [requirements, setRequirements] = useState([])
 
     const [student, setStudent] = useState('');
-    const [rank, setRank] = useState(0);
 
     const handleChange=(id)=>{
         let i=requirements.findIndex(e=>e.requisito_id===id);
@@ -31,7 +30,7 @@ function Evaluation() {
             }
             axios.get(`${SERVER}/rank/${student}`,config)
             .then(({data})=>{
-                setRank(data)
+                setRequirements(data)
                 setSearch(true)
             }).catch((error)=>{
                 Swal.fire({
@@ -58,7 +57,6 @@ function Evaluation() {
         axios.post(`${SERVER}/rank/initializate`, {documento:student} ,config)
         .then(({data})=>{
             let temp=data.map(e=>{return {...e, state:false}})
-            setRank(temp[0]?.rango_id)
             setRequirements(temp)
         }).catch((e)=>{
             Swal.fire({
@@ -85,7 +83,6 @@ function Evaluation() {
             axios.post(`${SERVER}/report/evaluate`, data ,config)
             .then(({data})=>{
                 let temp=data.map(e=>{return {...e, state:false}})
-                setRank(temp[0]?.rango_id)
                 setRequirements(temp)
             }).catch(e=>{
                 Swal.fire({
@@ -115,13 +112,13 @@ function Evaluation() {
                 {!search&&<button type="button" className="form-orange-button" onClick={handleSearch}>
                     BUSCAR
                 </button>}
-                {((!!search)&&(!rank))&&
+                {((!!search)&&(requirements.length===0))&&
                     <div>
                         <p className="text-normal">El estudiante no posee rango, ¿Desea crearle uno?</p>
                         <button type="button" className="form-orange-button" onClick={()=>{initializate()}}>EVALUAR</button>
                     </div>
                 }
-                {(!!search&&!!rank)&&
+                {(!!search&&(requirements.length>0))&&
                     <>
                         <button type="button" className="form-dark-button" onClick={handleCancel}>
                             CANCELAR

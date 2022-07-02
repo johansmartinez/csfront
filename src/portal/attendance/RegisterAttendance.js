@@ -65,7 +65,7 @@ function RegisterAttendance() {
                     array.map(e=>(
                         <div className="attendance-div">
                             <span>{e.documento} - {e.nombres} {e.apellidos}</span>
-                            <button className="orange-button" onClick={()=>registerAttendance(e.documento)}>REGISTRAR</button>
+                            <button type="button" className="orange-button" onClick={()=>registerAttendance(e.documento)}>REGISTRAR</button>
                         </div>
                     ))
                 }

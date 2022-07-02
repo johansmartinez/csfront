@@ -17,7 +17,7 @@ function Report() {
         }
         axios.get(`${SERVER}/report/${user.documento}`,config)
         .then(({data})=>{
-            setdata(data)
+            setdata(data.reverse())
         }).catch(()=>{})
     }, [])
     return (

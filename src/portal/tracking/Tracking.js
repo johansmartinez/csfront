@@ -35,9 +35,9 @@ function Tracking() {
             <br/>
             <h2 className="title">PROGRESO:</h2>
             <div className="progress-div">
-                <ComponentCard total={data.length} title={'FLEXIBILIDAD'} array={FLEXIBILIDAD}/>
-                <ComponentCard total={data.length} title={'PATADAS'} array={PATADAS}/>
-                <ComponentCard total={data.length} title={'COMBATE'} array={OTRO}/>
+                <ComponentCard  title={'FLEXIBILIDAD'} array={FLEXIBILIDAD}/>
+                <ComponentCard  title={'PATADAS'} array={PATADAS}/>
+                <ComponentCard  title={'COMBATE'} array={OTRO}/>
             </div>
             
         </>

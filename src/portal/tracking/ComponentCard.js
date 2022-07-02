@@ -1,9 +1,9 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-function ComponentCard({title, array, total}) {
-
-    let percentage=(total!==0)?(array.length===0)?100:(array.reduce((sum,item)=> (item?.estado===1)?sum+1:sum+0,0)*100)/total:(array.length===0)?100:0;
+function ComponentCard({title, array}) {
+    let total=array.length;
+    let percentage=(total!==0)?(array.length===0)?100:(array.reduce((sum,item)=> (item?.estado===1)?(sum+1):(sum+0),0)*100)/total:(array.length===0)?100:0;
     
     return (
         <div className="progress-card">
