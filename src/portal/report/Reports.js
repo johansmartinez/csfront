@@ -1,30 +1,37 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserProvider";
+import axios from "axios";
+import { SERVER } from '../../context/Backend';
 
 function Report() {
 
-    const {user} = useContext(UserContext);
-    const [data, setdata] = useState({
-        cinta:'BLANCA'
-    })
+    const {user, getToken} = useContext(UserContext);
+    const [data, setdata] = useState([])
 
-    const report=[1,1,1,1,1,1]
     useEffect(() => {
-        
-    }, [data])
+        const config={
+            headers:{
+                'Access-Control-Allow-Origin': '*',
+                'token-clubsue':getToken()
+            }
+        }
+        axios.get(`${SERVER}/report/${user.documento}`,config)
+        .then(({data})=>{
+            setdata(data)
+        }).catch(()=>{})
+    }, [])
     return (
         <>
             <h2 className="title">REPORTES</h2>
             <br/>
-            <p className="text-bold">CINTA: <span className="text-normal">{data.cinta}</span></p>
             <br/>
             <div className="reports-container">
                 {
-                    report.map(()=>(
+                    data.map((e)=>(
                         <div className="div-borde">
-                            <h2 className="title">(Componente) REQUISITO</h2>
-                            <p className="text-bold">Instructor: <span className="text-normal">nombre instructor</span></p>
-                            <p className="desc">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                            <h2 className="title">({e.componente}) {e.requisito}</h2>
+                            <p className="text-bold">Instructor: <span className="text-normal">{e.instructor}</span></p>
+                            <p className="desc">{e.descripcion}</p>
                         </div>
                     ))
                 }
