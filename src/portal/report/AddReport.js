@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState,useContext } from "react";
+import { useState,useContext,useEffect } from "react";
 import { UserContext } from "../../context/UserProvider";
 import { SERVER } from '../../context/Backend';
 import Swal from "sweetalert2";
@@ -13,6 +13,23 @@ function AddReport() {
     const [requirement, setRequirement] = useState('-1')
     const [description, setDescription] = useState('');
 
+    const [belt, setBelt] = useState(-1);
+    const [nameBelt, setNameBelt] = useState('');
+
+    useEffect(() => {
+        if (belt!==-1) {
+            const config={
+                headers:{
+                    'Access-Control-Allow-Origin': '*',
+                    'token-clubsue':getToken()
+                }
+            }
+            axios.get(`${SERVER}/belt/belt/${belt}`, config)
+            .then(({data})=>{setNameBelt(data.nombre)})
+            .catch((e)=>{})
+        }
+    }, [belt])
+
     const handleSearch=()=>{
         const config={
             headers:{
@@ -24,6 +41,7 @@ function AddReport() {
         .then(({data})=>{
             if (data.length>0) {
                 setRequirements(data)
+                setBelt(data[0].cinta)
                 setSearch(true)
             }else{
                 Swal.fire({
@@ -89,6 +107,9 @@ function AddReport() {
                         <button type="button" className="form-dark-button" onClick={handleCancel}>
                             CANCELAR
                         </button>
+                        <center>
+                            <p className="text-bold">Cinta: <span className="text-normal">{nameBelt}</span></p>
+                        </center>
                         <label className="field-form">
                             <p>Requisito:<span className="red">*</span>:</p>
                             <select value={requirement} onChange={e=>setRequirement(e.target.value)}>

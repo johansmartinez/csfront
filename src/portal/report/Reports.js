@@ -31,6 +31,7 @@ function Report() {
                         <div className="div-borde">
                             <h2 className="title">({e.componente}) {e.requisito}</h2>
                             <p className="text-bold">Instructor: <span className="text-normal">{e.instructor}</span></p>
+                            <p className="text-bold">Cinta: <span className="text-normal">{e.cinta}</span></p>
                             <p className="desc">{e.descripcion}</p>
                         </div>
                     ))

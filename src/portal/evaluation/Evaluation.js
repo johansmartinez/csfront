@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState,useContext } from "react";
+import { useState,useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserProvider";
 import Swal from "sweetalert2";
 import { SERVER } from '../../context/Backend';
@@ -11,6 +11,23 @@ function Evaluation() {
     const [requirements, setRequirements] = useState([])
 
     const [student, setStudent] = useState('');
+    const [belt, setBelt] = useState(-1);
+    const [nameBelt, setNameBelt] = useState('');
+
+    useEffect(() => {
+        if (belt!==-1) {
+            const config={
+                headers:{
+                    'Access-Control-Allow-Origin': '*',
+                    'token-clubsue':getToken()
+                }
+            }
+            axios.get(`${SERVER}/belt/belt/${belt}`, config)
+            .then(({data})=>{setNameBelt(data.nombre)})
+            .catch((e)=>{})
+        }
+    }, [belt])
+    
 
     const handleChange=(id)=>{
         let i=requirements.findIndex(e=>e.requisito_id===id);
@@ -31,6 +48,7 @@ function Evaluation() {
             axios.get(`${SERVER}/rank/${student}`,config)
             .then(({data})=>{
                 setRequirements(data)
+                setBelt(data[0].cinta)
                 setSearch(true)
             }).catch((error)=>{
                 Swal.fire({
@@ -57,6 +75,7 @@ function Evaluation() {
         axios.post(`${SERVER}/rank/initializate`, {documento:student} ,config)
         .then(({data})=>{
             let temp=data.map(e=>{return {...e, state:false}})
+            setBelt(data[0].cinta)
             setRequirements(temp)
         }).catch((e)=>{
             Swal.fire({
@@ -83,6 +102,7 @@ function Evaluation() {
             axios.post(`${SERVER}/report/evaluate`, data ,config)
             .then(({data})=>{
                 let temp=data.map(e=>{return {...e, state:false}})
+                setBelt(data[0].cinta)
                 setRequirements(temp)
             }).catch(e=>{
                 Swal.fire({
@@ -123,6 +143,10 @@ function Evaluation() {
                         <button type="button" className="form-dark-button" onClick={handleCancel}>
                             CANCELAR
                         </button>
+                        <center>
+                            <p className="text-bold">Cinta: <span className="text-normal">{nameBelt}</span></p>
+                        </center>
+                        
                         {
                             requirements.map((e)=>(
                                 <div className="eval-req">
