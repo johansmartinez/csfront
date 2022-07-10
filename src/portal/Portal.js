@@ -15,6 +15,7 @@ import { Report } from './report/Reports';
 import { RegisterAttendance } from './attendance/RegisterAttendance';
 import { AddReport } from './report/AddReport';
 import { Evaluation } from './evaluation/Evaluation';
+import { Principal } from './principal/Principal';
 
 function Portal() {
     const {view} = useContext(ViewContext);
@@ -35,6 +36,7 @@ function Portal() {
                 <div className='portal-container'>
                     {resolution!=='MOBILE'&&<Menu item={menuItem} setItem={m=>setMenuItem(m)} />}
                     <div className='portal-select'>
+                        {menuItem===''&&<Principal/>}
                         {menuItem==='PERFIL'&&<Profile/>}
                         {menuItem==='MI DESARROLLO'&&<Tracking/>}
                         {menuItem==='ASISTENCIA'&&<Attendance/>}
