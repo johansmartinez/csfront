@@ -32,6 +32,12 @@ function UserProvider({children}) {
             'AGREGAR INFORME',
             'CERRAR SESIÓN'
         ],
+        admin:[
+            'PERFIL',
+            'AGREGAR INSTRUCTOR/ADMINISTRADOR',
+            'AGREGAR REQUISITO',
+            'CERRAR SESIÓN'
+        ],
     };
 
     const getMenu=()=>{

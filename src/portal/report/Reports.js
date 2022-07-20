@@ -7,6 +7,7 @@ function Report() {
 
     const {user, getToken} = useContext(UserContext);
     const [data, setdata] = useState([])
+    const [loading, setloading] = useState(true)
 
     useEffect(() => {
         const config={
@@ -18,6 +19,7 @@ function Report() {
         axios.get(`${SERVER}/report/${user.documento}`,config)
         .then(({data})=>{
             setdata(data.reverse())
+            setloading(false)
         }).catch(()=>{})
     }, [])
     return (
@@ -25,6 +27,12 @@ function Report() {
             <h2 className="title">REPORTES</h2>
             <br/>
             <br/>
+            {
+                (!loading&&data.length===0)&&
+                    <>
+                        <p className="text-normal">Usted no tiene reportes registrados 😢</p>
+                    </>
+            }
             <div className="reports-container">
                 {
                     data.map((e)=>(
