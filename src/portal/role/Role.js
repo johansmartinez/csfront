@@ -10,7 +10,6 @@ function Role() {
     const {getToken} = useContext(UserContext)
     
     const handleClick=()=>{
-        alert(JSON.stringify({documento,role}))
         if (role!==''&&documento!=='') {
             const config={
                 headers:{
