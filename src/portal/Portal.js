@@ -17,6 +17,7 @@ import { AddReport } from './report/AddReport';
 import { Evaluation } from './evaluation/Evaluation';
 import { Principal } from './principal/Principal';
 import { Role } from './role/Role';
+import { Requirement } from './requirement/requirement';
 
 function Portal() {
     const {view} = useContext(ViewContext);
@@ -47,6 +48,7 @@ function Portal() {
                         {menuItem==='AGREGAR INFORME'&&<AddReport/>}
                         {menuItem==='EVALUAR ALUMNOS'&&<Evaluation/>}
                         {menuItem==='AGREGAR INSTRUCTOR/ADMINISTRADOR'&&<Role/>}
+                        {menuItem==='AGREGAR REQUISITO'&&<Requirement/>}
                     </div>
                 </div>
                 }
