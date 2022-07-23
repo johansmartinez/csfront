@@ -94,10 +94,10 @@ function Singup(props) {
                 <input type='password' placeholder="Ingrese un número de documento" value={contrasena} onChange={e=>{setContrasena(e.target.value)}}/>
             </label>
             <button type="button" className="form-dark-button" onClick={()=>{setView('LOGIN')}}>
-                INICIAR SESIÓN
+                Iniciar sesión
             </button>
             <button type="button" className="form-orange-button" onClick={handleSingup}>
-                REGISTRARSE
+                Registrarse
             </button>
         </form>
     );

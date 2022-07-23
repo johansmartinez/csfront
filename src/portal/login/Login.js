@@ -54,10 +54,10 @@ function Login(props) {
                 <input type='password' placeholder="Ingrese un número de documento" value={contrasena} onChange={e=>{setContrasena(e.target.value)}}/>
             </label>
             <button type="button" className="form-dark-button" onClick={()=>{setView('SINGUP')}}>
-                CREAR CUENTA
+                Crear cuenta
             </button>
             <button type="button" className="form-orange-button" onClick={handleLogin}>
-                INICIAR
+                Iniciar sesión
             </button>
         </form>
     );

@@ -19,24 +19,24 @@ function UserProvider({children}) {
     
     const routes={
         estudiante:[
-            'PERFIL',
-            'MI DESARROLLO',
-            'ASISTENCIA',
-            'MIS REPORTES',
-            'CERRAR SESIÓN'
+            'Perfil',
+            'Mi desarrollo',
+            'Asistencia',
+            'Mis reportes',
+            'Cerrar sesión'
         ],
         instructor:[
-            'PERFIL',
-            'EVALUAR ALUMNOS',
-            'REGISTRAR ASISTENCIA',
-            'AGREGAR INFORME',
-            'CERRAR SESIÓN'
+            'Perfil',
+            'Evaluar alumnos',
+            'Registrar asistencia',
+            'Agregar informe',
+            'Cerrar sesión'
         ],
         admin:[
-            'PERFIL',
-            'AGREGAR INSTRUCTOR/ADMINISTRADOR',
-            'AGREGAR REQUISITO',
-            'CERRAR SESIÓN'
+            'Perfil',
+            'Agregar instructor/administrador',
+            'Agregar requisito',
+            'Cerrar sesión'
         ],
     };
 

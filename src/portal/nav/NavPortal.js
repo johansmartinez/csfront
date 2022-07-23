@@ -8,7 +8,7 @@ function NavPortal({item, setItem}) {
     
     const [menu, setMenu] = useState(false);
     const {view,setView}= useContext(ViewContext);
-    const {user, getMenu, validateUser} = useContext(UserContext);
+    const { getMenu, validateUser} = useContext(UserContext);
 
     const resolution=useResolution();
     const items=getMenu();
@@ -16,11 +16,11 @@ function NavPortal({item, setItem}) {
     return ( 
         <nav className="nav-principal">
             {(validateUser&&resolution!=='MOBILE')&&<span></span>}
-            {(view==='LOGIN'||view==='SINGUP')&&<button className="dark-button" type="button" onClick={()=>setView('HOMEPAGE')}>VOLVER</button>}
+            {(view==='LOGIN'||view==='SINGUP')&&<button className="dark-button" type="button" onClick={()=>setView('HOMEPAGE')}>Regresar</button>}
             {((validateUser)&&(resolution==='MOBILE'))&&
                 <button type="button" className="img-icon"
                 onClick={()=>setMenu(true)}
-                > <img src="https://i.ibb.co/0M110GD/menu-1.png"/></button>
+                > <img src="https://i.ibb.co/0M110GD/menu-1.png" alt="Icono de  menú"/></button>
             }
             {(resolution==='MOBILE'&&menu&&validateUser)&&
                 <div className="menu">
@@ -32,7 +32,7 @@ function NavPortal({item, setItem}) {
                 </div>
             }
             <span>CLUB SUE</span>
-            <img className="mini-logo" src="https://i.ibb.co/s3pJPqG/clubsuelogo-removebg-preview.png"/>
+            <img className="mini-logo" src="https://i.ibb.co/s3pJPqG/clubsuelogo-removebg-preview.png" alt="Logo academía club sue"/>
         </nav>
     );
 }

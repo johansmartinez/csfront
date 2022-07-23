@@ -100,12 +100,12 @@ function AddReport() {
                     <input type='text' disabled={search} placeholder="Ingrese el número de documento del estudiante" value={student} onChange={e=>{setStudent(e.target.value)}}/>
                 </label>
                 {!search&&<button type="button" className="form-orange-button" onClick={handleSearch}>
-                    BUSCAR
+                    Buscar
                 </button>}
                 {!!search&&
                     <>
                         <button type="button" className="form-dark-button" onClick={handleCancel}>
-                            CANCELAR
+                            Cancelar
                         </button>
                         <center>
                             <p className="text-bold">Cinta: <span className="text-normal">{nameBelt}</span></p>
@@ -124,7 +124,7 @@ function AddReport() {
                             <textarea placeholder="Ingrese una descripción" value={description} onChange={e=>{setDescription(e.target.value)}}/>
                         </label>
                         <button type="button" className="form-orange-button" onClick={handleAdd}>
-                            AGREGAR INFORME
+                            Agregar informe
                         </button>
                     </>
                 }

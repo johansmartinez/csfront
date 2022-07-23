@@ -6,7 +6,7 @@ import {ViewContext} from "../../context/ViewProvider";
 function Nav() {
     
     const [menu, setMenu] = useState(false);
-    const {view,setView}= useContext(ViewContext);
+    const {setView}= useContext(ViewContext);
 
     return ( 
         <nav className="nav-principal">
@@ -19,7 +19,7 @@ function Nav() {
             {useResolution()==='MOBILE'&&
                 <button type="button" className="img-icon"
                     onClick={()=>setMenu(true)}
-                > <img src="https://i.ibb.co/0M110GD/menu-1.png"/></button>
+                > <img src="https://i.ibb.co/0M110GD/menu-1.png" alt="Icono de menu"/></button>
             }
             {!!menu&&
                 <div className="menu">
@@ -29,7 +29,7 @@ function Nav() {
                 </div>
             }
             <span>CLUB SUE</span>
-            <button className="dark-button" type="button" onClick={()=>setView('LOGIN')}>INICIAR SESIÓN</button>
+            <button className="dark-button" type="button" onClick={()=>setView('LOGIN')}>Iniciar sesión</button>
         </nav>
     );
 }

@@ -9,6 +9,19 @@ function Report() {
     const [data, setdata] = useState([])
     const [loading, setloading] = useState(true)
 
+    const capitalizeFirstLetter=(name)=>{
+        let temp='';
+        let array=String(name).split(' ')
+        array.forEach(string => {
+            temp+=string.charAt(0).toUpperCase() + string.slice(1)+' ';
+        });
+        return temp
+    }
+
+    const capitalizeOnlyFirstLetter=(string)=>{
+        return string.charAt(0).toUpperCase() + string.slice(1)+' ';
+    }
+
     useEffect(() => {
         const config={
             headers:{
@@ -24,7 +37,7 @@ function Report() {
     }, [])
     return (
         <>
-            <h2 className="title">REPORTES</h2>
+            <h2 className="title">Reportes</h2>
             <br/>
             <br/>
             {
@@ -38,8 +51,8 @@ function Report() {
                     data.map((e)=>(
                         <div className="div-borde">
                             <h2 className="title">({e.componente}) {e.requisito}</h2>
-                            <p className="text-bold">Instructor: <span className="text-normal">{e.instructor}</span></p>
-                            <p className="text-bold">Cinta: <span className="text-normal">{e.cinta}</span></p>
+                            <p className="text-bold">Instructor: <span className="text-normal">{capitalizeFirstLetter(String(e.instructor).toLowerCase())}</span></p>
+                            <p className="text-bold">Cinta: <span className="text-normal">{capitalizeOnlyFirstLetter(String(e.cinta).toLowerCase())}</span></p>
                             <p className="desc">{e.descripcion}</p>
                         </div>
                     ))

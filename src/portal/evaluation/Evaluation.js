@@ -97,7 +97,7 @@ function Evaluation() {
                 'token-clubsue':getToken()
             }
         }
-        let data={instructor:user.documento,requisitos:requirements.filter(e=>e.state==true)}
+        let data={instructor:user.documento,requisitos:requirements.filter(e=>e.state===true)}
         if (data.requisitos.length>0) {
             axios.post(`${SERVER}/report/evaluate`, data ,config)
             .then(({data})=>{
@@ -130,18 +130,18 @@ function Evaluation() {
                     <input type='text' disabled={search} placeholder="Ingrese el número de documento del estudiante" value={student} onChange={e=>{setStudent(e.target.value)}}/>
                 </label>
                 {!search&&<button type="button" className="form-orange-button" onClick={handleSearch}>
-                    BUSCAR
+                    Buscar
                 </button>}
                 {((!!search)&&(requirements.length===0))&&
                     <div>
                         <p className="text-normal">El estudiante no posee rango, ¿Desea crearle uno?</p>
-                        <button type="button" className="form-orange-button" onClick={()=>{initializate()}}>EVALUAR</button>
+                        <button type="button" className="form-orange-button" onClick={()=>{initializate()}}>Comezar</button>
                     </div>
                 }
                 {(!!search&&(requirements.length>0))&&
                     <>
                         <button type="button" className="form-dark-button" onClick={handleCancel}>
-                            CANCELAR
+                            Cancelar
                         </button>
                         <center>
                             <p className="text-bold">Cinta: <span className="text-normal">{nameBelt}</span></p>
@@ -156,7 +156,7 @@ function Evaluation() {
                             ))
                         }
                         <button type="button" className="form-orange-button" onClick={handleAdd}>
-                            EVALUAR
+                            Evaluar
                         </button>
                     </>
                 }

@@ -88,7 +88,7 @@ function Profile() {
     return (
         <>
             <form className="form-normal">
-                <h2 className="title">EDITAR PERFIL</h2> 
+                <h2 className="title">Editar Perfil</h2> 
                 <p className="text-normal">Por favor relllene los campos obligatorios (<span className="red">*</span>). </p>
                 <label className="field-form">
                     <p>Nombre:<span className="red">*</span></p>
@@ -123,7 +123,7 @@ function Profile() {
                     <input type='password' placeholder="Ingrese un número de documento" value={contrasena} onChange={e=>{setContrasena(e.target.value)}}/>
                 </label>
                 <button type="button" className="form-orange-button" onClick={handleEdit}>
-                    EDITAR
+                    Editar
                 </button>
             </form>
         </>

@@ -56,14 +56,14 @@ function Role() {
             <label className="field-form">
                 <p>Rol:<span className="red">*</span>:</p>
                 <select value={role} onChange={e=>setRole(e.target.value)}>
-                    <option className="option" value='instructor'>INSTRUCTOR</option>
-                    <option className="option" value='admin'>ADMINISTRADOR</option>
+                    <option className="option" value='instructor'>Instructor</option>
+                    <option className="option" value='admin'>Administrador</option>
                 </select>
             </label>
             <br/>
             <br/>
             <button type="button" className="form-orange-button" onClick={handleClick}>
-                ASIGNAR
+                Asignar
             </button>
         </>
     );

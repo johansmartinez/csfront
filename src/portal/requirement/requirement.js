@@ -106,7 +106,7 @@ function Requirement() {
                 <textarea placeholder="Ingrese el item de calificación para mayores de 9 años" value={normal} onChange={e=>{setNormal(e.target.value)}}/>
             </label>
             <button type="button" className="form-orange-button" onClick={handleClick}>
-                AGREGAR
+                Agregar
             </button>
         </form>
     );

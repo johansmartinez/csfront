@@ -39,16 +39,16 @@ function Portal() {
                     {resolution!=='MOBILE'&&<Menu item={menuItem} setItem={m=>setMenuItem(m)} />}
                     <div className='portal-select'>
                         {menuItem===''&&<Principal/>}
-                        {menuItem==='PERFIL'&&<Profile/>}
-                        {menuItem==='MI DESARROLLO'&&<Tracking/>}
-                        {menuItem==='ASISTENCIA'&&<Attendance/>}
-                        {menuItem==='CERRAR SESIÓN'&&<Logout/>}
-                        {menuItem==='MIS REPORTES'&&<Report/>}
-                        {menuItem==='REGISTRAR ASISTENCIA'&&<RegisterAttendance/>}
-                        {menuItem==='AGREGAR INFORME'&&<AddReport/>}
-                        {menuItem==='EVALUAR ALUMNOS'&&<Evaluation/>}
-                        {menuItem==='AGREGAR INSTRUCTOR/ADMINISTRADOR'&&<Role/>}
-                        {menuItem==='AGREGAR REQUISITO'&&<Requirement/>}
+                        {menuItem==='Perfil'&&<Profile/>}
+                        {menuItem==='Mi desarrollo'&&<Tracking/>}
+                        {menuItem==='Asistencia'&&<Attendance/>}
+                        {menuItem==='Cerrar sesión'&&<Logout menuItem={e=>setMenuItem(e)}/>}
+                        {menuItem==='Mis reportes'&&<Report/>}
+                        {menuItem==='Registrar asistencia'&&<RegisterAttendance/>}
+                        {menuItem==='Agregar informe'&&<AddReport/>}
+                        {menuItem==='Evaluar alumnos'&&<Evaluation/>}
+                        {menuItem==='Agregar instructor/administrador'&&<Role/>}
+                        {menuItem==='Agregar requisito'&&<Requirement/>}
                     </div>
                 </div>
                 }
