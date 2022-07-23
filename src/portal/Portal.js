@@ -18,6 +18,8 @@ import { Evaluation } from './evaluation/Evaluation';
 import { Principal } from './principal/Principal';
 import { Role } from './role/Role';
 import { Requirement } from './requirement/requirement';
+import { Students } from './students/Students';
+import { Instructors } from './instructors/Instructors';
 
 function Portal() {
     const {view} = useContext(ViewContext);
@@ -49,6 +51,8 @@ function Portal() {
                         {menuItem==='Evaluar alumnos'&&<Evaluation/>}
                         {menuItem==='Agregar instructor/administrador'&&<Role/>}
                         {menuItem==='Agregar requisito'&&<Requirement/>}
+                        {menuItem==='Listado de estudiantes'&&<Students/>}
+                        {menuItem==='Listado de instructores'&&<Instructors/>}
                     </div>
                 </div>
                 }

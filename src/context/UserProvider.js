@@ -28,12 +28,15 @@ function UserProvider({children}) {
         instructor:[
             'Perfil',
             'Evaluar alumnos',
+            'Listado de estudiantes',
             'Registrar asistencia',
             'Agregar informe',
             'Cerrar sesión'
         ],
         admin:[
             'Perfil',
+            'Listado de estudiantes',
+            'Listado de instructores',
             'Agregar instructor/administrador',
             'Agregar requisito',
             'Cerrar sesión'
