@@ -20,6 +20,7 @@ import { Role } from './role/Role';
 import { Requirement } from './requirement/requirement';
 import { Students } from './students/Students';
 import { Instructors } from './instructors/Instructors';
+import { ReportAttendance } from './attendance/ReportAttendance';
 
 function Portal() {
     const {view} = useContext(ViewContext);
@@ -53,6 +54,7 @@ function Portal() {
                         {menuItem==='Agregar requisito'&&<Requirement/>}
                         {menuItem==='Listado de estudiantes'&&<Students/>}
                         {menuItem==='Listado de instructores'&&<Instructors/>}
+                        {menuItem==='Reporte de asistencias'&&<ReportAttendance/>}
                     </div>
                 </div>
                 }

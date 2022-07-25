@@ -22,9 +22,9 @@ function ComponentCard({title, array}) {
                     </div>
                     {array.map(e=>{
                         if (e.estado===1) {
-                            return <p className="text-normal">{e.requisito}  <img className="img-req" src="https://i.ibb.co/fQCvBCG/comprobado.png"/></p>
+                            return <p className="text-normal">{e.requisito}  <img className="img-req" alt='Icono de requisito realizado' src="https://i.ibb.co/fQCvBCG/comprobado.png"/></p>
                         } else {
-                            return <p className="text-normal">{e.requisito}  <img className="img-req" src="https://i.ibb.co/FYHGS4k/cancelar.png"/></p>
+                            return <p className="text-normal">{e.requisito}  <img className="img-req" alt='Icono de requisito no realizado' src="https://i.ibb.co/FYHGS4k/cancelar.png"/></p>
                         }
                     })}
                     

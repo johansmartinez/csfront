@@ -477,11 +477,33 @@ form button{
   border-radius: 10px;
 }
 
+.form-black-button{
+  width: 100%;
+  cursor: pointer;
+  color: white;
+  background-color: #212121;
+  font-size: 1.6rem;
+  padding: 10px;
+  border: transparent 1px solid;
+  border-radius: 10px;
+}
+
+.form-black-button:hover {
+  background-color: transparent;
+  color: #212121;
+  border: #212121 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
 .form-orange-button:hover {
   background-color: transparent;
   color: #fe6601;
   border: #fe6601 1px solid;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.rdt_TableCol_Sortable{
+  text-align: center;
 }
 
 /*------------------------------------FOOTER---------------------------------*/

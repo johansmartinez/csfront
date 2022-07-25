@@ -30,6 +30,7 @@ function UserProvider({children}) {
             'Evaluar alumnos',
             'Listado de estudiantes',
             'Registrar asistencia',
+            'Reporte de asistencias',
             'Agregar informe',
             'Cerrar sesión'
         ],
@@ -37,6 +38,7 @@ function UserProvider({children}) {
             'Perfil',
             'Listado de estudiantes',
             'Listado de instructores',
+            'Reporte de asistencias',
             'Agregar instructor/administrador',
             'Agregar requisito',
             'Cerrar sesión'
