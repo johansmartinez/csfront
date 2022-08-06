@@ -1,4 +1,4 @@
 
-const SERVER='http://localhost:3002';
+const SERVER='';
 
 export {SERVER};
